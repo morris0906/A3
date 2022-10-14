@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>
+        SHIT: It really is the name
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="http://localhost:5000/logo-192x192.png" type="image/x-icon" />
+    <link rel="stylesheet" href="hlee433.css" />
+    <script defer="true" src="hlee433.js"></script>
+
+</head>
+
+<body id="main" style="background-color: white;">
+    <div class="sidebar">
+        <a class="active" onclick="openHome()"> &#127968; Home</a>
+        <a onclick="openStaff()">&#128240;Staff</a>
+        <a onclick="openShop()">&#128722;Instituion Shop</a>
+        <a onclick="openGuest();loadComments();">&#128214;Guest Book</a>
+        <a id="RegNav" onclick="openLogin()">&#128105;User Registration</a>
+        <a id="username"></a>
+        <img id="Logo" alt="Logo" src="http://localhost:5000/api/GetLogo" class="Logo" />
+
+        <div id="Login">
+            <label for="userID">Username: </label>
+            <input type="text" id="UserId" style="margin: auto;"><br>
+            <label for="Pwd">Password: </label>
+            <input type="password" id="Password" style="margin: auto;"></br>
+            <input type="checkbox" onclick="ShowPassword()">Show Password<br>
+            <button type="submit" onclick="Login()">Login</button><br>
+            <p id="LoginResponse"></p>
+        </div>
+        <p id="version">&copy;</p>
+    </div>
+
+    <div id="home" class="content">
+        <img id="Logo" alt="Logo" src="http://localhost:5000/api/GetLogo" class="MainLogo" />
+        <h1>Welcome to Southern Hemisphere Institution of Technology</h1>
+        <hr width="100%">
+        <p>Oh. Hello there!</p>
+        <p>This page is this site's main page. </p>
+        <p>This is it. Nothing more.</p>
+        <P>Sorry, if you were expecting something more.</P>
+        <p style="display: inline;">But too bad becasue this is
+        <h1 style="display: inline;"><b>S.H.I.T.</b></h1> website!</p>
+    </div>
+
+    <div id="staff" class="content">
+        <p>Meet our staffs</p>
+        <p>Side note: It might take upto 14 seconds to load the whole list. Please wait a bit.</p>
+        <div style="overflow-x:auto;">
+            <table id="staffs" style="overflow-x:auto;">
+                <tr class='header'>
+                    <th>Photo</th>
+                    <th>Personal Information</th>
+                    <th>Research Interests</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="shop" class="content">
+        <p>Would you like to buy some SHIT items?</p>
+        <input type="text" id="Searchbar" onkeydown="Search()" placeholder="Search..."><br>
+        <div style="overflow-x:auto;">
+            <table id="itemList" style="overflow-x:auto;">
+                <tr class='header'>
+                    <th>Image</th>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="registration" class="content">
+        <p>Register here</p>
+        <div id="Registration">
+            <label for="userID">Name: </label>
+            <input type="text" id="NewUser"><br>
+            <label for="newPass">Password: </label>
+            <input type="password" id="NewPass"></br>
+            <input type="checkbox" onclick="revealPassword()">Show Password<br>
+            <button type="submit" onclick="userRes()">Submit</button><br>
+            <p id="registrationResponse"></p>
+        </div>
+    </div>
+
+    <div id="guest" class="content">
+        <p>Hey you! Yes, you!</p>
+        <p>If you haven't logged in, you can still write comments on this page!</p>
+        <div id="commentInput">
+            <label for="Comment">Comment: </label>
+            <textarea type="text" id="comment" class="CommentText" placeholder="Write your comment."></textarea><br>
+            <label for="Name">Name: </label>
+            <input type="text" id="name" placeholder="Your name"><br>
+            <button type="submit" onclick="writeComment()">Submit</button>
+        </div>
+        <br><br>
+        <p>Previous Comments:</p>
+        <iframe src="http://localhost:5000/api/GetComments" id="comments" class="CommentLoad"></iframe>
+
+
+    </div>
+</body>
+
+<!-- Purchase Success Modal -->
+<div id="PurcahseModal" class="modal">
+    <div class="ModalContent">
+        <p id="PurchaseSuccess"></p><br>
+        <span class="close" onclick="ModalClose()">close</span>
+    </div>
+
+</html>
